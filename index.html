@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Love Quest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background Animation Container -->
+    <div id="petals-container"></div>
+
+    <main class="game-container">
+        
+        <!-- Header -->
+        <header>
+            <h1>Love Quest</h1>
+        </header>
+
+        <!-- LEVEL 1: The Reason I Smile -->
+        <section id="level-1" class="screen active">
+            <h2>Level 1: The Reason I Smile</h2>
+            <p class="instruction">Tap the cards to reveal the truth.</p>
+            
+            <div class="tile-container">
+                <div class="tile" onclick="revealTile(this, 0)">
+                    <div class="tile-cover">?</div>
+                    <div class="tile-content">“Because you’re my favorite notification.”</div>
+                </div>
+                <div class="tile" onclick="revealTile(this, 1)">
+                    <div class="tile-cover">?</div>
+                    <div class="tile-content">“Because you’re the best person to argue with.”</div>
+                </div>
+                <div class="tile" onclick="revealTile(this, 2)">
+                    <div class="tile-cover">?</div>
+                    <div class="tile-content">“Because being with you always feels right.”</div>
+                </div>
+            </div>
+
+            <button id="btn-level-1" class="next-btn hidden" onclick="goToLevel(2)">Next Level</button>
+        </section>
+
+        <!-- LEVEL 2: Memory Match -->
+        <section id="level-2" class="screen hidden">
+            <h2>Level 2: Memory Match</h2>
+            <p class="instruction">Find all the matching pairs.</p>
+
+            <div class="grid-container" id="memory-grid">
+                <!-- Cards injected via JavaScript -->
+            </div>
+
+            <div id="lvl2-message" class="hidden">
+                <p class="reward-text">“You deserve all the love I have to give.”</p>
+                <button class="next-btn" onclick="goToLevel(3)">Next Level</button>
+            </div>
+        </section>
+
+        <!-- LEVEL 3: Final Boss -->
+        <section id="level-3" class="screen hidden">
+            <h2>Level 3: Defeat the Boss</h2>
+            <p class="instruction">Tap the boss to lower their HP!</p>
+
+            <div class="boss-area">
+                <div class="hp-bar-container">
+                    <div id="hp-bar-fill" class="hp-fill"></div>
+                </div>
+                <!-- Important: Relative path assets/boss/boss.png -->
+                <img src="assets/boss/boss.png" alt="Final Boss" id="boss-img" onclick="hitBoss()">
+            </div>
+
+            <div id="lvl3-message" class="hidden">
+                <p class="reward-text">Level Complete!</p>
+                <button class="next-btn" onclick="goToLevel(4)">Continue</button>
+            </div>
+        </section>
+
+        <!-- FINAL REVEAL -->
+        <section id="level-4" class="screen hidden">
+            <h2>Final Quest</h2>
+            <p class="instruction">There’s only one thing left to do…</p>
+            
+            <div class="final-box">
+                <button id="ask-btn" class="big-btn" onclick="askValentine()">Will you be my Valentine?</button>
+                <p id="final-answer" class="hidden match-text">“Achievement unlocked: First Valentine with you.”</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
